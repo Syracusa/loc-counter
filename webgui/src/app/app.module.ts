@@ -9,12 +9,14 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MainlistComponent } from './mainlist/mainlist.component';
+import { MainstatComponent } from './mainstat/mainstat.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LogComponent,
-    MainlistComponent
+    MainlistComponent,
+    MainstatComponent
   ],
   imports: [
     BrowserModule,
