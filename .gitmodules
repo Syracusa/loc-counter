@@ -1,3 +1,45 @@
 [submodule "webgui"]
 	path = webgui
 	url = ./webgui
+[submodule "projects/sy_cpp_boilerplate"]
+	path = projects/sy_cpp_boilerplate
+	url = https://github.com/Syracusa/sy_cpp_boilerplate
+[submodule "projects/sy-misc"]
+	path = projects/sy-misc
+	url = https://github.com/Syracusa/sy-misc
+[submodule "projects/sy-technotes"]
+	path = projects/sy-technotes
+	url = https://github.com/Syracusa/sy-technotes
+[submodule "projects/bbb-dd-examples"]
+	path = projects/bbb-dd-examples
+	url = https://github.com/Syracusa/bbb-dd-examples
+[submodule "projects/pywebsock-boilerplate"]
+	path = projects/pywebsock-boilerplate
+	url = https://github.com/Syracusa/pywebsock-boilerplate
+[submodule "projects/sy-angular-boilerplate"]
+	path = projects/sy-angular-boilerplate
+	url = https://github.com/Syracusa/sy-angular-boilerplate
+[submodule "projects/linux-c-boilerplate"]
+	path = projects/linux-c-boilerplate
+	url = https://github.com/Syracusa/linux-c-boilerplate
+[submodule "projects/VolatileTextEditor"]
+	path = projects/VolatileTextEditor
+	url = https://github.com/Syracusa/VolatileTextEditor
+[submodule "projects/source-graph"]
+	path = projects/source-graph
+	url = https://github.com/Syracusa/source-graph
+[submodule "projects/sy-msg-window"]
+	path = projects/sy-msg-window
+	url = https://github.com/Syracusa/sy-msg-window
+[submodule "projects/sy-rust-boilerplate"]
+	path = projects/sy-rust-boilerplate
+	url = https://github.com/Syracusa/sy-rust-boilerplate
+[submodule "projects/my-openssl-examples"]
+	path = projects/my-openssl-examples
+	url = https://github.com/Syracusa/my-openssl-examples
+[submodule "projects/time-wheel"]
+	path = projects/time-wheel
+	url = https://github.com/Syracusa/time-wheel
+[submodule "projects/CodingTest"]
+	path = projects/CodingTest
+	url = https://github.com/Syracusa/CodingTest

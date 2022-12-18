@@ -2,10 +2,12 @@ import os
 import datetime
 import json
 
-exclude_dirs =  set(['build', 'env', '.vscode', 'node_modules', 'ext', 'environments'])
-exclude_files =  set(['karma.conf.js'])
+DO_VERBOSE = 0
 
-extensions = ('.c', '.h', '.cpp', '.ts', '.js', '.html', '.py', '.sh', '.rs', '.md')
+exclude_dirs =  set(['build', 'env', '.vscode', 'node_modules', 'ext', 'environments'])
+exclude_files =  set(['karma.conf.js', 'MainForm.Designer.cs'])
+
+extensions = ('.c', '.h', '.cpp', '.ts', '.js', '.html', '.py', '.sh', '.rs', '.md', '.cs')
 locs = {}
 
 def do_log(data :dict):
@@ -58,14 +60,16 @@ def count_loc_repo(path, reponame):
                     locs[reponame][ext] += floc
                     
                     repo_loc += floc
-                    print(f'file {file} loc {floc}')
+                    
+                    if DO_VERBOSE:
+                        print(f'file {file} loc {floc}')
     prune_extension_locs(locs[reponame])
     return repo_loc
 
 locs['accu'] = {}
 init_extension_locs(locs['accu'])
 
-repo_path = '../'
+repo_path = './projects/'
 loc = count_loc(repo_path)
 print(f'Number of lines of code in the repository: {loc}')
 
