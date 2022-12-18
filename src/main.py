@@ -20,7 +20,7 @@ def do_log(data :dict):
         
     date_str = now.strftime("%Y-%m-%d-%H-%M-%S")
     
-    filename = f"./log/{date_str}.txt"
+    filename = f"./log/{date_str}.json"
     with open(filename, "w") as f:
         f.write(json.dumps(data, indent = 4))
         
