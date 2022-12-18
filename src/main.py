@@ -51,7 +51,7 @@ def count_loc_repo(path, reponame):
         dirs[:] = [d for d in dirs if d not in exclude_dirs]
         files[:] = [f for f in files if f not in exclude_files]
         for file in files:
-            if file.endswith(extensions):  # count only Python files
+            if file.endswith(extensions):
                 with open(os.path.join(root, file), 'r') as f:
                     ext = get_file_extension(f.name)
                     
