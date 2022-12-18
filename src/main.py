@@ -14,7 +14,7 @@ def do_log(data :dict):
     now = datetime.datetime.now()
     date_str = now.strftime("%Y-%m-%d")
     
-    filename = f"./log/{date_str}.txt"
+    filename = f"./log/{date_str}.json"
     with open(filename, "w") as f:
         f.write(json.dumps(data, indent = 4))
         
@@ -56,7 +56,7 @@ def count_loc_repo(path, reponame):
                     ext = get_file_extension(f.name)
                     
                     floc = len(f.readlines())
-                    locs['accu'][ext] += floc
+                    locs['All'][ext] += floc
                     locs[reponame][ext] += floc
                     
                     repo_loc += floc
@@ -66,13 +66,13 @@ def count_loc_repo(path, reponame):
     prune_extension_locs(locs[reponame])
     return repo_loc
 
-locs['accu'] = {}
-init_extension_locs(locs['accu'])
+locs['All'] = {}
+init_extension_locs(locs['All'])
 
 repo_path = './projects/'
 loc = count_loc(repo_path)
 print(f'Number of lines of code in the repository: {loc}')
 
-prune_extension_locs(locs['accu'])
+prune_extension_locs(locs['All'])
 print(json.dumps(locs, indent = 4))
 do_log(locs)
