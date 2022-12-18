@@ -71,7 +71,7 @@ init_extension_locs(locs['All'])
 
 repo_path = './projects/'
 loc = count_loc(repo_path)
-print(f'Number of lines of code in the repository: {loc}')
+print(f'Number of lines of code in the repositories: {loc}')
 
 prune_extension_locs(locs['All'])
 print(json.dumps(locs, indent = 4))
