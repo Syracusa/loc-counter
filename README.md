@@ -1,3 +1,6 @@
+# LOC-Counter
+Count line of code in your git repositories.
+
 # How to use
 1. See src/main.py and modify exclude_dirs and exclude_files as you want
 2. Add your repositories to init.sh
