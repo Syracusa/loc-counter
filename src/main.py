@@ -4,38 +4,47 @@ import json
 
 DO_VERBOSE = 0
 
+# Exclude some directories and files by their name
 exclude_dirs =  set(['build', 'env', '.vscode', 'node_modules', 'ext', 'environments'])
 exclude_files =  set(['karma.conf.js', 'MainForm.Designer.cs'])
 
+# File extensions to count
 extensions = ('.c', '.h', '.cpp', '.ts', '.js', '.html', '.py', '.sh', '.rs', '.md', '.cs')
+
+# Dictionary to save all stat
 locs = {}
 
+# Save data to json file
 def do_log(data :dict):
+    # Save file with yy-mm-dd.json
     now = datetime.datetime.now()
     date_str = now.strftime("%Y-%m-%d")
-    
     filename = f"./log/{date_str}.json"
     with open(filename, "w") as f:
         f.write(json.dumps(data, indent = 4))
         
+    # Save file with yy-mm-dd-HH-MM-SS
     date_str = now.strftime("%Y-%m-%d-%H-%M-%S")
-    
     filename = f"./log/{date_str}.json"
     with open(filename, "w") as f:
         f.write(json.dumps(data, indent = 4))
         
+# Get extension from file name
 def get_file_extension(filename):
     return os.path.splitext(filename)[1]
 
+# Set all key to zero
 def init_extension_locs(extension_locs: dict):
     for e in extensions:
         extension_locs[e] = 0
 
+# Remove key(extension) if count is zero
 def prune_extension_locs(extension_locs: dict):
     for e in extensions:
         if (extension_locs[e] == 0):
             del extension_locs[e]
 
+# Count loc of all repositories
 def count_loc(path):
     loc_acc = 0
     directories = [d for d in os.listdir(path) if os.path.isdir(os.path.join(path, d))]
@@ -43,6 +52,7 @@ def count_loc(path):
         loc_acc += count_loc_repo(path, d)
     return loc_acc
 
+# Count loc in one repository
 def count_loc_repo(path, reponame):  
     repo_loc = 0
     locs[reponame] = {}
@@ -66,6 +76,7 @@ def count_loc_repo(path, reponame):
     prune_extension_locs(locs[reponame])
     return repo_loc
 
+# Main logic
 locs['All'] = {}
 init_extension_locs(locs['All'])
 
