@@ -24,10 +24,10 @@ def do_log(data :dict):
         f.write(json.dumps(data, indent = 4))
         
     # Save file with yy-mm-dd-HH-MM-SS
-    date_str = now.strftime("%Y-%m-%d-%H-%M-%S")
-    filename = f"./log/{date_str}.json"
-    with open(filename, "w") as f:
-        f.write(json.dumps(data, indent = 4))
+    # date_str = now.strftime("%Y-%m-%d-%H-%M-%S")
+    # filename = f"./log/{date_str}.json"
+    # with open(filename, "w") as f:
+    #     f.write(json.dumps(data, indent = 4))
         
 # Get extension from file name
 def get_file_extension(filename):
