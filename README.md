@@ -5,7 +5,7 @@ Count line of code in your git repositories.
 1. See src/main.py and modify exclude_dirs and exclude_files as you want
 2. Add your repositories to init.sh
 3. ./init.sh
-4. ./do.sh
+4. ./update.sh
 5. LOC log will be generated at ./log/ as json style
 
 ***
