@@ -1,2 +1,3 @@
 git submodule foreach git pull
-./do.sh
+mkdir -p log
+python3 src/main.py 

@@ -14,6 +14,19 @@ extensions = ('.c', '.h', '.cpp', '.ts', '.js', '.html', '.py', '.sh', '.rs', '.
 # Dictionary to save all stat
 locs = {}
 
+def make_data_information():
+    info = {}
+    
+    lgd = "./log/"
+    lf = lgd + "datainfo.json"
+    if os.path.exists(lf):
+        os.remove(lf)
+    info['files'] = [d for d in os.listdir(lgd) if os.path.isfile(os.path.join(lgd, d))]
+    info['extensions'] = extensions
+    
+    with open(lf, "w") as f:
+        f.write(json.dumps(info, indent = 4))
+
 # Save data to json file
 def do_log(data :dict):
     # Save file with yy-mm-dd.json
@@ -22,12 +35,6 @@ def do_log(data :dict):
     filename = f"./log/{date_str}.json"
     with open(filename, "w") as f:
         f.write(json.dumps(data, indent = 4))
-        
-    # Save file with yy-mm-dd-HH-MM-SS
-    # date_str = now.strftime("%Y-%m-%d-%H-%M-%S")
-    # filename = f"./log/{date_str}.json"
-    # with open(filename, "w") as f:
-    #     f.write(json.dumps(data, indent = 4))
         
 # Get extension from file name
 def get_file_extension(filename):
@@ -87,3 +94,4 @@ print(f'Number of lines of code in the repositories: {loc}')
 prune_extension_locs(locs['All'])
 print(json.dumps(locs, indent = 4))
 do_log(locs)
+make_data_information()
