@@ -19,4 +19,9 @@ for prj in ${projects[@]}; do
     git submodule add ${repository_domain}${prj} ./projects/${prj}
 done
 
+mkdir -p log
+python3 src/main.py 
+
+cp ./log/*.json ./webgui/src/assets/
+
 # git submodule add https://github.com/Syracusa/bbb-dd-examples ./projects/bbb-dd-examples
